@@ -12,9 +12,12 @@ RUN npm ci
 
 # Copy the rest of the application code
 COPY . .
+
+RUN chmod +x ./setup.sh && ./setup.sh
+
 RUN mv .env.docker .env  \
     && sed -ie 's/postgresql/sqlite/g' prisma/schema.prisma \
-   && sed -ie 's/@db.Text//' prisma/schema.prisma
+   && sed -ie 's/@db.Text//' prisma/schema.prisma \
 
 # Expose the port the app will run on
 ENV PORT=3000
