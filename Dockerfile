@@ -17,7 +17,7 @@ RUN mv .env.docker .env  \
    && sed -ie 's/@db.Text//' prisma/schema.prisma
 
 # Expose the port the app will run on
-ENV PORT 3000
+ENV PORT=3000
 EXPOSE $PORT
 
 # Add Prisma and generate Prisma client
