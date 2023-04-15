@@ -18,7 +18,7 @@ RUN mv .env.docker .env  \
 
 # Expose the port the app will run on
 ENV PORT=3000
-EXPOSE ${PORT}
+EXPOSE $PORT
 
 # Add Prisma and generate Prisma client
 RUN npx prisma generate  \
